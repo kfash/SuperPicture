@@ -32,9 +32,21 @@ def Cat ():
 	c.create_oval(Sizex*2/35, Sizey*23/35,Sizex*11/70, Sizey*5/7,fill="brown")
 	c.create_oval(Sizex*23/70,Sizey*43/70,Sizex*3/7,   Sizey*5/7,fill="brown")
 	c.create_oval(Sizex*2/5,  Sizey*24/35,Sizex*61/140,Sizey*27/35,fill="brown")
+	
+	
+def Ravel ():
+	c.create_oval(Sizex*11/14,Sizey*11/14,Sizex*13/14,  Sizey*13/14,fill="grey")
+	penColor("Black")
+	polyline([(Sizex*111/140,Sizey*117/140),(Sizex*117/140,Sizey*115/140),(Sizex*123/140,Sizey*120/140),(Sizex*127/140,Sizey*127/140)])
+	polyline([(Sizex*113/140,Sizey*114/140),(Sizex*117/140,Sizey*112/140),(Sizex*125/140,Sizey*117/140),(Sizex*129/140,Sizey*124/140)])
+	polyline([(Sizex*113/140,Sizey*120/140),(Sizex*117/140,Sizey*123/140),(Sizex*123/140,Sizey*123/140)])
+	polyline([(Sizex*113/140,Sizey*124/140),(Sizex*117/140,Sizey*127/140),(Sizex*123/140,Sizey*127/140)])
 
 
 Back_Ground()
 Cat()
+Ravel()
 
 run()
+
+
