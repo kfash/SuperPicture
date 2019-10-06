@@ -1,9 +1,13 @@
 from graph import *
+from tkinter import*
 Sizex = 1000
 Sizey = 1000
 windowSize(Sizex,Sizey)
 canvasSize(Sizex,Sizey)
 c=canvas()
+rav=list()
+eye=list()
+dx = Sizex*5/1000
 
 def Back_Ground ():
 	brushColor(200,100,0)
@@ -25,6 +29,7 @@ def Window ():
 	rectangle(Sizex*39/70,Sizey*13/70,Sizex*47/70,Sizey*11/35)
 	
 def Cat ():
+	Ears()
 	c.create_oval(Sizex*27/70,Sizey*39/70,Sizex*9/14,  Sizey*22/35,fill="brown")
 	c.create_oval(Sizex/14,   Sizey*37/70,Sizex*3/7,   Sizey*5/7,fill="brown")
 	c.create_oval(Sizex/35,   Sizey*4/7,  Sizex*9/140, Sizey*47/70,fill="brown")
@@ -33,26 +38,61 @@ def Cat ():
 	c.create_oval(Sizex*23/70,Sizey*43/70,Sizex*3/7,   Sizey*5/7,fill="brown")
 	c.create_oval(Sizex*2/5,  Sizey*24/35,Sizex*61/140,Sizey*27/35,fill="brown")
 	Eyes()
+	Face()
 	
 	
 def Ravel ():
-	c.create_oval(Sizex*11/14,Sizey*11/14,Sizex*13/14,  Sizey*13/14,fill="grey")
+	global rav
+	a1=c.create_oval(Sizex*11/14,Sizey*11/14,Sizex*13/14,  Sizey*13/14,fill="grey")
 	penColor("Black")
-	polyline([(Sizex*111/140,Sizey*117/140),(Sizex*117/140,Sizey*115/140),(Sizex*123/140,Sizey*120/140),(Sizex*127/140,Sizey*127/140)])
-	polyline([(Sizex*113/140,Sizey*114/140),(Sizex*117/140,Sizey*112/140),(Sizex*125/140,Sizey*117/140),(Sizex*129/140,Sizey*124/140)])
-	polyline([(Sizex*113/140,Sizey*120/140),(Sizex*117/140,Sizey*123/140),(Sizex*123/140,Sizey*123/140)])
-	polyline([(Sizex*113/140,Sizey*124/140),(Sizex*117/140,Sizey*127/140),(Sizex*123/140,Sizey*127/140)])
+	a2=polyline([(Sizex*111/140,Sizey*117/140),(Sizex*117/140,Sizey*115/140),(Sizex*123/140,Sizey*120/140),(Sizex*127/140,Sizey*127/140)])
+	a3=polyline([(Sizex*113/140,Sizey*114/140),(Sizex*117/140,Sizey*112/140),(Sizex*125/140,Sizey*117/140),(Sizex*129/140,Sizey*124/140)])
+	a4=polyline([(Sizex*113/140,Sizey*120/140),(Sizex*117/140,Sizey*123/140),(Sizex*123/140,Sizey*123/140)])
+	a5=polyline([(Sizex*113/140,Sizey*124/140),(Sizex*117/140,Sizey*127/140),(Sizex*123/140,Sizey*127/140)])
+	rav.append(a1)
+	rav.append(a2)
+	rav.append(a3)
+	rav.append(a4)
+	rav.append(a5)
 
 def Eyes ():
+	global eye
 	c.create_oval(Sizex*43/500,Sizey*280/500,Sizex*63/500,Sizey*300/500,fill="limegreen")
 	c.create_oval(Sizex*11/500,Sizey*280/500,Sizex*31/500,Sizey*300/500,fill="limegreen")
-	c.create_oval(Sizex*19/500,Sizey*281/500,Sizex*24/500,Sizey*299/500,fill="black")
-	c.create_oval(Sizex*51/500,Sizey*281/500,Sizex*56/500,Sizey*299/500,fill="black")
+	a1=c.create_oval(Sizex*19/500,Sizey*281/500,Sizex*24/500,Sizey*299/500,fill="black")
+	a2=c.create_oval(Sizex*51/500,Sizey*281/500,Sizex*56/500,Sizey*299/500,fill="black")
+	eye.append(a1)
+	eye.append(a2)
 	
+def Ears ():
+	penColor("black")
+	brushColor("brown")
+	polygon([(Sizex*90/1000, Sizey*530/1000),(Sizex*110/1000, Sizey*500/1000),(Sizex*130/1000, Sizey*550/1000),(Sizex*90/1000, Sizey*530/1000)])
+	polygon([(Sizex*60/1000, Sizey*530/1000),(Sizex*40/1000, Sizey*500/1000),(Sizex*20/1000, Sizey*550/1000),(Sizex*60/1000, Sizey*530/1000)])
+	brushColor("Sienna")
+	polygon([(Sizex*95/1000, Sizey*530/1000),(Sizex*110/1000, Sizey*508/1000),(Sizex*125/1000, Sizey*546/1000),(Sizex*95/1000, Sizey*530/1000)])
+	polygon([(Sizex*55/1000, Sizey*530/1000),(Sizex*40/1000, Sizey*508/1000),(Sizex*25/1000, Sizey*546/1000),(Sizex*55/1000, Sizey*530/1000)])
+
+def Face ():
+	brushColor ("LightSalmon")
+	polygon([(Sizex*65/1000, Sizey*600/1000),(Sizex*85/1000, Sizey*600/1000),(Sizex*75/1000, Sizey*620/1000),(Sizex*65/1000, Sizey*600/1000)])
+	polyline([(Sizex*75/1000,Sizey*620/1000),(Sizex*75/1000,Sizey*625/1000)])
+	c.create_arc(Sizex*75/1000,Sizey*620/1000,Sizex*65/1000,Sizey*630/1000,start=0,extent=-180,style=ARC,outline='black',width=1)
+	c.create_arc(Sizex*75/1000,Sizey*620/1000,Sizex*85/1000,Sizey*630/1000,start=0,extent=-180,style=ARC,outline='black',width=1)
+
+def Move ():
+	global rav,eye,dx
+	for i in range(0,5):
+		if ((xCoord (rav [0])<=Sizex*20/1000)or(xCoord(rav[0])>=Sizex*850/1000)):
+			dx = -dx
+		moveObjectBy(rav[i],dx,0)
+	moveObjectTo(eye[0],Sizex*21/500+(xCoord(rav[0])/Sizex)*Sizex*5/500, Sizey*281/500)
+	moveObjectTo(eye[1],Sizex*53/500+(xCoord(rav[0])/Sizex)*Sizex*5/500,Sizey*281/500)
 
 Back_Ground()
 Cat()
 Ravel()
+onTimer(Move,50)
 
 run()
 
